@@ -13,9 +13,7 @@ const Wrapper = styled.div`
 const App = () => (
     <Wrapper>
         <Router history={history}>
-            <MainLayout>
-
-            </MainLayout>
+            <MainLayout></MainLayout>
         </Router>
     </Wrapper>
 )
