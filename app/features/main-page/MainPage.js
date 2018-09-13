@@ -49,14 +49,14 @@ const MainPage = () => (
                         to={ROUTES.PRODUCTS}
                     >
                         Products
-                </StyledLink>
+                    </StyledLink>
                 </StyledListElement>
                 <StyledListElement>
                     <StyledLink
                         to={ROUTES.ORDERS}
                     >
                         Orders
-                </StyledLink>
+                    </StyledLink>
                 </StyledListElement>
             </StyledList>
         </Fragment>
