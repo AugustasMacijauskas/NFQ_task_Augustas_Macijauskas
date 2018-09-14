@@ -4,6 +4,7 @@
 // Low-End	Mid-Range	High-End
 
 // phone template
+
 // const template = {
 //     id: 0,
 //     category: 'Mid-Range',
@@ -19,7 +20,7 @@
 //     discount: 0,
 // }
 
-// I am going to use phone models as my products
+// Products
 export const products = [
     {
         id: 0,
@@ -751,6 +752,60 @@ export const products = [
     }
 ];
 
+const brands = [];
+const categories = [];
+var priceMin = Infinity;
+var priceMax = 0;
+var cameraMin = Infinity;
+var cameraMax = 0;
+var storageMin = Infinity;
+var storageMax = 0
+var sizeMin = Infinity;
+var sizeMax = 0
+const oss = [];
+
+for (let i = 0; i < products.length; i++) {
+    if (brands.indexOf(products[i].brand) === -1) {
+        brands.push(products[i].brand);
+    }
+    if (categories.indexOf(products[i].category) === -1) {
+        categories.push(products[i].category);
+    }
+    if (products[i].price < priceMin) {
+        priceMin = products[i].price;
+    }
+    if (products[i].price > priceMax) {
+        priceMax = products[i].price;
+    }
+    if (products[i].primaryCamera < cameraMin) {
+        cameraMin = products[i].primaryCamera;
+    }
+    if (products[i].primaryCamera > cameraMax) {
+        cameraMax = products[i].primaryCamera;
+    }
+    if (products[i].storage < storageMin) {
+        storageMin = products[i].storage;
+    }
+    if (products[i].storage > storageMax) {
+        storageMax = products[i].storage;
+    }
+    if (products[i].size < sizeMin) {
+        sizeMin = products[i].size;
+    }
+    if (products[i].size > sizeMax) {
+        sizeMax = products[i].size;
+    }
+    if (oss.indexOf(products[i].os) === -1) {
+        oss.push(products[i].os);
+    }
+}
+
+export { brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, oss };
+
+
+
+
+// Orders
 export const orders = [
     {
         ID: 0,
@@ -1054,52 +1109,32 @@ export const orders = [
     }
 ];
 
-const brands = [];
-const categories = [];
-var priceMin = Infinity;
-var priceMax = 0;
-var cameraMin = Infinity;
-var cameraMax = 0;
-var storageMin = Infinity;
-var storageMax = 0
-var sizeMin = Infinity;
-var sizeMax = 0
-const oss = [];
+var customerIDMin = Infinity;
+var customerIDMax = 0;
+var productIDMin = Infinity;
+var productIDMax = 0;
+var amountMin = Infinity;
+var amountMax = 0;
 
-for (let i = 0; i < products.length; i++) {
-    if (brands.indexOf(products[i].brand) === -1) {
-        brands.push(products[i].brand);
+for (let i = 0; i < orders.length; i++) {
+    if (orders[i].customerID < customerIDMin) {
+        customerIDMin = orders[i].customerID;
     }
-    if (categories.indexOf(products[i].category) === -1) {
-        categories.push(products[i].category);
+    if (orders[i].customerID > customerIDMax) {
+        customerIDMax = orders[i].customerID;
     }
-    if (products[i].price < priceMin) {
-        priceMin = products[i].price;
+    if (orders[i].productID < productIDMin) {
+        productIDMin = orders[i].productID;
     }
-    if (products[i].price > priceMax) {
-        priceMax = products[i].price;
+    if (orders[i].productID > productIDMax) {
+        productIDMax = orders[i].productID;
     }
-    if (products[i].primaryCamera < cameraMin) {
-        cameraMin = products[i].primaryCamera;
+    if (orders[i].amount < amountMin) {
+        amountMin = orders[i].amount;
     }
-    if (products[i].primaryCamera > cameraMax) {
-        cameraMax = products[i].primaryCamera;
-    }
-    if (products[i].storage < storageMin) {
-        storageMin = products[i].storage;
-    }
-    if (products[i].storage > storageMax) {
-        storageMax = products[i].storage;
-    }
-    if (products[i].size < sizeMin) {
-        sizeMin = products[i].size;
-    }
-    if (products[i].size > sizeMax) {
-        sizeMax = products[i].size;
-    }
-    if (oss.indexOf(products[i].os) === -1) {
-        oss.push(products[i].os);
+    if (orders[i].amount > amountMax) {
+        amountMax = orders[i].amount;
     }
 }
 
-export { brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, oss };
+export { customerIDMin, customerIDMax, productIDMin, productIDMax, amountMin, amountMax };

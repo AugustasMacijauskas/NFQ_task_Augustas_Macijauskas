@@ -1,4 +1,4 @@
-import { products, brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, oss, orders } from './data';
+import { products, brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, oss, orders, customerIDMin, customerIDMax, productIDMin, productIDMax, amountMin, amountMax } from './data';
 
 const imitateApiDelay = (results) => {
     return new Promise(resolve => {
@@ -8,8 +8,10 @@ const imitateApiDelay = (results) => {
     });
 }
 
+// Products
+
 export const getProducts = (params = {}) => {
-    return imitateApiDelay(products) // newArray
+    return imitateApiDelay(products); // newArray
 }
 
 export const getBrands = () => {
@@ -56,7 +58,35 @@ export const getOss = () => {
     return imitateApiDelay(oss);
 };
 
+
+
+// Orders
+
 export const getOrders = (params = {}) => {
     // newArray = 
-    return imitateApiDelay(orders) // newArray
+    return imitateApiDelay(orders); // newArray
 }
+
+export const getCustomerIDMin = () => {
+    return imitateApiDelay(customerIDMin);
+};
+
+export const getCustomerIDMax = () => {
+    return imitateApiDelay(customerIDMax);
+};
+
+export const getProductIDMin = () => {
+    return imitateApiDelay(productIDMin);
+};
+
+export const getProductIDMax = () => {
+    return imitateApiDelay(productIDMax);
+};
+
+export const getAmountMin = () => {
+    return imitateApiDelay(amountMin);
+};
+
+export const getAmountMax = () => {
+    return imitateApiDelay(amountMax);
+};

@@ -7,18 +7,18 @@ const Products = ({ products, categories, brands, priceMin, priceMax, cameraMin,
                 products.map((x, i) => {
                     return (
                         <li key={i}>
-                            <p>{x.id}</p>
-                            <p>{x.brand}</p>
-                            <p>{x.model}</p>
-                            <p>{x.category}</p>
-                            <p>{x.weight}</p>
-                            <p>{x.size}</p>
-                            <p>{x.colors}</p>
-                            <p>{x.storage}</p>
-                            <p>{x.os}</p>
-                            <p>{x.primaryCamera}</p>
-                            <p>{x.price}</p>
-                            <p>{x.discount}</p>
+                            <p>id: {x.id}</p>
+                            <p>brand: {x.brand}</p>
+                            <p>model: {x.model}</p>
+                            <p>category: {x.category}</p>
+                            <p>weight: {x.weight}</p>
+                            <p>size: {x.size}</p>
+                            <p>colors: {x.colors}</p>
+                            <p>storage: {x.storage}</p>
+                            <p>os: {x.os}</p>
+                            <p>primaryCamera: {x.primaryCamera}</p>
+                            <p>price: {x.price}</p>
+                            <p>discount: {x.discount}</p>
                         </li>
                     )
                 })
@@ -39,15 +39,15 @@ const Products = ({ products, categories, brands, priceMin, priceMax, cameraMin,
             }
         </ul>
         <ul>
-            <li>{priceMin}</li>
-            <li>{priceMax}</li>
-            <li>{cameraMin}</li>
-            <li>{cameraMax}</li>
-            <li>{storageMin}</li>
-            <li>{storageMax}</li>
-            <li>{sizeMin}</li>
-            <li>{sizeMax}</li>
-            <li>{oss}</li>
+            <li>priceMin: {priceMin}</li>
+            <li>priceMax: {priceMax}</li>
+            <li>cameraMin: {cameraMin}</li>
+            <li>cameraMax: {cameraMax}</li>
+            <li>storageMin: {storageMin}</li>
+            <li>storageMax: {storageMax}</li>
+            <li>sizeMin: {sizeMin}</li>
+            <li>sizeMax: {sizeMax}</li>
+            <li>oss: {oss}</li>
         </ul>
     </div>
 )
