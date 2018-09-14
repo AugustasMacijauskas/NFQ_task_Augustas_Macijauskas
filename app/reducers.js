@@ -1,0 +1,1 @@
+export { reducer as products } from 'features/products';

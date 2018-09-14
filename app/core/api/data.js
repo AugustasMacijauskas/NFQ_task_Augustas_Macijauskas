@@ -1,20 +1,23 @@
 // Data structure
+
+// Categories
 // Low-End	Mid-Range	High-End
+
 // phone template
-const template = {
-    id: 0,
-    category: 'Mid-Range',
-    model: 'A5 2016',
-    brand: 'Samsung',
-    weight: 5,
-    size: 4.5,
-    colors: ['gold'],
-    storage: 16,
-    os: 'Android',
-    primaryCamera: 8,
-    price: 300,
-    discount: 0,
-}
+// const template = {
+//     id: 0,
+//     category: 'Mid-Range',
+//     model: 'A5 2016',
+//     brand: 'Samsung',
+//     weight: 5,
+//     size: 4.5,
+//     colors: ['gold'],
+//     storage: 16,
+//     os: 'Android',
+//     primaryCamera: 8,
+//     price: 300,
+//     discount: 0,
+// }
 
 // I am going to use phone models as my products
 export const products = [
@@ -750,9 +753,353 @@ export const products = [
 
 export const orders = [
     {
-        orderID: 0,
-        customerID: 123456,
-        productID: 000000,
-        amount: 2,
+        ID: 0,
+        customerID: 32,
+        productID: 8,
+        amount: 2
     },
+    {
+        ID: 1,
+        customerID: 9,
+        productID: 37,
+        amount: 3
+    },
+    {
+        ID: 2,
+        customerID: 13,
+        productID: 16,
+        amount: 2
+    },
+    {
+        ID: 3,
+        customerID: 29,
+        productID: 23,
+        amount: 1
+    },
+    {
+        ID: 4,
+        customerID: 36,
+        productID: 17,
+        amount: 2
+    },
+    {
+        ID: 5,
+        customerID: 14,
+        productID: 4,
+        amount: 3
+    },
+    {
+        ID: 6,
+        customerID: 31,
+        productID: 27,
+        amount: 3
+    },
+    {
+        ID: 7,
+        customerID: 32,
+        productID: 32,
+        amount: 2
+    },
+    {
+        ID: 8,
+        customerID: 6,
+        productID: 36,
+        amount: 3
+    },
+    {
+        ID: 9,
+        customerID: 43,
+        productID: 19,
+        amount: 2
+    },
+    {
+        ID: 10,
+        customerID: 23,
+        productID: 32,
+        amount: 3
+    },
+    {
+        ID: 11,
+        customerID: 22,
+        productID: 4,
+        amount: 1
+    },
+    {
+        ID: 12,
+        customerID: 9,
+        productID: 31,
+        amount: 1
+    },
+    {
+        ID: 13,
+        customerID: 13,
+        productID: 4,
+        amount: 3
+    },
+    {
+        ID: 14,
+        customerID: 44,
+        productID: 47,
+        amount: 3
+    },
+    {
+        ID: 15,
+        customerID: 20,
+        productID: 6,
+        amount: 2
+    },
+    {
+        ID: 16,
+        customerID: 12,
+        productID: 45,
+        amount: 2
+    },
+    {
+        ID: 17,
+        customerID: 26,
+        productID: 4,
+        amount: 1
+    },
+    {
+        ID: 18,
+        customerID: 38,
+        productID: 33,
+        amount: 2
+    },
+    {
+        ID: 19,
+        customerID: 32,
+        productID: 32,
+        amount: 2
+    },
+    {
+        ID: 20,
+        customerID: 10,
+        productID: 28,
+        amount: 3
+    },
+    {
+        ID: 21,
+        customerID: 34,
+        productID: 31,
+        amount: 2
+    },
+    {
+        ID: 22,
+        customerID: 15,
+        productID: 48,
+        amount: 1
+    },
+    {
+        ID: 23,
+        customerID: 20,
+        productID: 39,
+        amount: 3
+    },
+    {
+        ID: 24,
+        customerID: 37,
+        productID: 34,
+        amount: 2
+    },
+    {
+        ID: 25,
+        customerID: 10,
+        productID: 39,
+        amount: 3
+    },
+    {
+        ID: 26,
+        customerID: 44,
+        productID: 1,
+        amount: 3
+    },
+    {
+        ID: 27,
+        customerID: 38,
+        productID: 45,
+        amount: 2
+    },
+    {
+        ID: 28,
+        customerID: 45,
+        productID: 15,
+        amount: 1
+    },
+    {
+        ID: 29,
+        customerID: 30,
+        productID: 14,
+        amount: 2
+    },
+    {
+        ID: 30,
+        customerID: 18,
+        productID: 13,
+        amount: 1
+    },
+    {
+        ID: 31,
+        customerID: 35,
+        productID: 26,
+        amount: 2
+    },
+    {
+        ID: 32,
+        customerID: 10,
+        productID: 21,
+        amount: 2
+    },
+    {
+        ID: 33,
+        customerID: 33,
+        productID: 9,
+        amount: 3
+    },
+    {
+        ID: 34,
+        customerID: 20,
+        productID: 1,
+        amount: 2
+    },
+    {
+        ID: 35,
+        customerID: 22,
+        productID: 22,
+        amount: 2
+    },
+    {
+        ID: 36,
+        customerID: 15,
+        productID: 9,
+        amount: 1
+    },
+    {
+        ID: 37,
+        customerID: 22,
+        productID: 1,
+        amount: 2
+    },
+    {
+        ID: 38,
+        customerID: 4,
+        productID: 22,
+        amount: 3
+    },
+    {
+        ID: 39,
+        customerID: 14,
+        productID: 28,
+        amount: 2
+    },
+    {
+        ID: 40,
+        customerID: 32,
+        productID: 24,
+        amount: 1
+    },
+    {
+        ID: 41,
+        customerID: 11,
+        productID: 11,
+        amount: 3
+    },
+    {
+        ID: 42,
+        customerID: 38,
+        productID: 28,
+        amount: 3
+    },
+    {
+        ID: 43,
+        customerID: 2,
+        productID: 45,
+        amount: 1
+    },
+    {
+        ID: 44,
+        customerID: 47,
+        productID: 17,
+        amount: 2
+    },
+    {
+        ID: 45,
+        customerID: 35,
+        productID: 17,
+        amount: 1
+    },
+    {
+        ID: 46,
+        customerID: 5,
+        productID: 24,
+        amount: 3
+    },
+    {
+        ID: 47,
+        customerID: 9,
+        productID: 29,
+        amount: 3
+    },
+    {
+        ID: 48,
+        customerID: 37,
+        productID: 22,
+        amount: 3
+    },
+    {
+        ID: 49,
+        customerID: 15,
+        productID: 14,
+        amount: 2
+    }
 ];
+
+const brands = [];
+const categories = [];
+var priceMin = Infinity;
+var priceMax = 0;
+var cameraMin = Infinity;
+var cameraMax = 0;
+var storageMin = Infinity;
+var storageMax = 0
+var sizeMin = Infinity;
+var sizeMax = 0
+const oss = [];
+
+for (let i = 0; i < products.length; i++) {
+    if (brands.indexOf(products[i].brand) === -1) {
+        brands.push(products[i].brand);
+    }
+    if (categories.indexOf(products[i].category) === -1) {
+        categories.push(products[i].category);
+    }
+    if (products[i].price < priceMin) {
+        priceMin = products[i].price;
+    }
+    if (products[i].price > priceMax) {
+        priceMax = products[i].price;
+    }
+    if (products[i].primaryCamera < cameraMin) {
+        cameraMin = products[i].primaryCamera;
+    }
+    if (products[i].primaryCamera > cameraMax) {
+        cameraMax = products[i].primaryCamera;
+    }
+    if (products[i].storage < storageMin) {
+        storageMin = products[i].storage;
+    }
+    if (products[i].storage > storageMax) {
+        storageMax = products[i].storage;
+    }
+    if (products[i].size < sizeMin) {
+        sizeMin = products[i].size;
+    }
+    if (products[i].size > sizeMax) {
+        sizeMax = products[i].size;
+    }
+    if (oss.indexOf(products[i].os) === -1) {
+        oss.push(products[i].os);
+    }
+}
+
+export { brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, oss };
