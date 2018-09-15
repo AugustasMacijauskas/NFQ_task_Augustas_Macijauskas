@@ -1,10 +1,41 @@
 import React from 'react';
+import { CheckBoxGroup, RadioBoxGroup, Slider } from 'shared-components';
+import SliderSelector from '../../shared-components/SliderSelector';
 
-const Products = ({ products, categories, brands, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, oss }) => (
+const Products = ({ products, categories, brands, oss, handleCategoryChange, handleBrandChange, handleOsChange, handlePriceUpdate, handleCameraUpdate, handleStorageUpdate, handleSizeUpdate }) => (
     <div>
+        <CheckBoxGroup
+            onChange={handleCategoryChange}
+            data={categories}
+            label='Categories'
+        />
+        <br />
+        <br />
+        <CheckBoxGroup
+            onChange={handleBrandChange}
+            data={brands}
+            label='Manufacturers'
+        />
+        <br />
+        <br />
+        <CheckBoxGroup
+            onChange={handleOsChange}
+            data={oss}
+            label='Operating systems'
+        />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <SliderSelector
+            min={products.priceMin}
+            max={products.priceMax}
+            onEnd={handlePriceUpdate}
+        />
         <ul>
             {
-                products.map((x, i) => {
+                products.products.map((x, i) => {
                     return (
                         <li key={i}>
                             <p>id: {x.id}</p>
@@ -13,7 +44,12 @@ const Products = ({ products, categories, brands, priceMin, priceMax, cameraMin,
                             <p>category: {x.category}</p>
                             <p>weight: {x.weight}</p>
                             <p>size: {x.size}</p>
-                            <p>colors: {x.colors}</p>
+                            <div>
+                                <RadioBoxGroup
+                                    data={x.colors}
+                                    label='Colors'
+                                />
+                            </div>
                             <p>storage: {x.storage}</p>
                             <p>os: {x.os}</p>
                             <p>primaryCamera: {x.primaryCamera}</p>
@@ -23,31 +59,6 @@ const Products = ({ products, categories, brands, priceMin, priceMax, cameraMin,
                     )
                 })
             }
-        </ul>
-        <ul>
-            {
-                categories.map((x, i) => {
-                    return <li key={i}>{x}</li>
-                })
-            }
-        </ul>
-        <ul>
-            {
-                brands.map((x, i) => {
-                    return <li key={i}>{x}</li>
-                })
-            }
-        </ul>
-        <ul>
-            <li>priceMin: {priceMin}</li>
-            <li>priceMax: {priceMax}</li>
-            <li>cameraMin: {cameraMin}</li>
-            <li>cameraMax: {cameraMax}</li>
-            <li>storageMin: {storageMin}</li>
-            <li>storageMax: {storageMax}</li>
-            <li>sizeMin: {sizeMin}</li>
-            <li>sizeMax: {sizeMax}</li>
-            <li>oss: {oss}</li>
         </ul>
     </div>
 )

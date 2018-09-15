@@ -6,45 +6,45 @@ import {
     getProducts,
     getCategories,
     getBrands,
-    getPriceMin,
-    getPriceMax,
-    getCameraMin,
-    getCameraMax,
-    getStorageMin,
-    getStorageMax,
-    getSizeMin,
-    getSizeMax,
     getOss,
 } from './actions';
 
 class ProductsContainer extends PureComponent {
+    handleCategoryChange = (values) => {
+        this.props.getProducts({
+            filter: { category: values },
+        });
+    }
+
+    handleBrandChange = (values) => {
+        this.props.getProducts({
+            filter: { brand: values },
+        });
+    }
+
+    handleOsChange = (values) => {
+        this.props.getProducts({
+            filter: { os: values },
+        });
+    }
+
+    handlePriceUpdate = (values) => {
+        this.props.getProducts({
+            minMaxFilter: { priceMin: values },
+        });
+    }
+
     componentDidMount() {
         const {
             getProducts,
             getCategories,
             getBrands,
-            getPriceMin,
-            getPriceMax,
-            getCameraMin,
-            getCameraMax,
-            getStorageMin,
-            getStorageMax,
-            getSizeMin,
-            getSizeMax,
             getOss,
         } = this.props;
 
         getProducts();
         getCategories();
         getBrands();
-        getPriceMin();
-        getPriceMax();
-        getCameraMin();
-        getCameraMax();
-        getStorageMin();
-        getStorageMax();
-        getSizeMin();
-        getSizeMax();
         getOss();
     }
 
@@ -53,30 +53,24 @@ class ProductsContainer extends PureComponent {
             products,
             categories,
             brands,
-            priceMin,
-            priceMax,
-            cameraMin,
-            cameraMax,
-            storageMin,
-            storageMax,
-            sizeMin,
-            sizeMax,
             oss
         } = this.props;
 
+        if (!products.products) {
+            return null;
+        }
         return <Products
             products={products}
             categories={categories}
             brands={brands}
-            priceMin={priceMin}
-            priceMax={priceMax}
-            cameraMin={cameraMin}
-            cameraMax={cameraMax}
-            storageMin={storageMin}
-            storageMax={storageMax}
-            sizeMin={sizeMin}
-            sizeMax={sizeMax}
             oss={oss}
+            handleCategoryChange={this.handleCategoryChange}
+            handleBrandChange={this.handleBrandChange}
+            handleOsChange={this.handleOsChange}
+            handlePriceChange={this.handlePriceChange}
+            handleCameraChange={this.handleCameraChange}
+            handleStorageChange={this.handleStorageChange}
+            handleSizeChange={this.handleSizeChange}
         />;
     }
 }
@@ -85,14 +79,6 @@ const mapStateToProps = state => ({
     products: state.products.products,
     categories: state.products.categories,
     brands: state.products.brands,
-    priceMin: state.products.priceMin,
-    priceMax: state.products.priceMax,
-    cameraMin: state.products.cameraMin,
-    cameraMax: state.products.cameraMax,
-    storageMin: state.products.storageMin,
-    storageMax: state.products.storageMax,
-    sizeMin: state.products.sizeMin,
-    sizeMax: state.products.sizeMax,
     oss: state.products.oss
 });
 
@@ -100,14 +86,6 @@ const mapActionsToProps = {
     getProducts,
     getCategories,
     getBrands,
-    getPriceMin,
-    getPriceMax,
-    getCameraMin,
-    getCameraMax,
-    getStorageMin,
-    getStorageMax,
-    getSizeMin,
-    getSizeMax,
     getOss,
 };
 

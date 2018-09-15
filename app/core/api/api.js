@@ -11,7 +11,32 @@ const imitateApiDelay = (results) => {
 // Products
 
 export const getProducts = (params = {}) => {
-    return imitateApiDelay(products); // newArray
+    let newProducts = products.slice();
+    if (params.filter) {
+        const keys = Object.keys(params.filter);
+        keys.forEach(key => {
+            if (params.filter[key] && params.filter[key].length) {
+                newProducts = newProducts.filter(x => params.filter[key].includes(x[key]));
+            }
+        });
+    }
+
+    console.log(newProducts);
+
+    return imitateApiDelay({
+        currentPage: 1,
+        priceMin,
+        priceMax,
+        cameraMin,
+        cameraMax,
+        storageMin,
+        storageMax,
+        sizeMin,
+        sizeMax,
+        length: products.length,
+        pageSize: 10,
+        products: newProducts
+    });
 }
 
 export const getBrands = () => {
@@ -20,38 +45,6 @@ export const getBrands = () => {
 
 export const getCategories = () => {
     return imitateApiDelay(categories);
-};
-
-export const getPriceMin = () => {
-    return imitateApiDelay(priceMin);
-};
-
-export const getPriceMax = () => {
-    return imitateApiDelay(priceMax);
-};
-
-export const getCameraMin = () => {
-    return imitateApiDelay(cameraMin);
-};
-
-export const getCameraMax = () => {
-    return imitateApiDelay(cameraMax);
-};
-
-export const getStorageMin = () => {
-    return imitateApiDelay(storageMin);
-};
-
-export const getStorageMax = () => {
-    return imitateApiDelay(storageMax);
-};
-
-export const getSizeMin = () => {
-    return imitateApiDelay(sizeMin);
-};
-
-export const getSizeMax = () => {
-    return imitateApiDelay(sizeMax);
 };
 
 export const getOss = () => {
