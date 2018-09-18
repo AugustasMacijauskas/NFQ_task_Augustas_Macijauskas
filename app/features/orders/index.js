@@ -1,2 +1,2 @@
-export OrdersContainer from "./OrderContainer";
+export OrdersContainer from "./OrdersContainer";
 export reducer from './reducer';

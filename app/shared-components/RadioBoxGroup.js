@@ -1,10 +1,14 @@
 import React, { PureComponent } from 'react';
+import styled from 'styled-components';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
+const Wrapper = styled.div`
+    margin: 1rem;
+`;
 class RadioBoxGroup extends PureComponent {
     state = {
         value: this.props.data[0],
@@ -36,20 +40,6 @@ class RadioBoxGroup extends PureComponent {
                             />
                         })
                     }
-                    {/* aria-label="Gender"
-                    name="gender1"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                >
-                    <FormControlLabel value="female" control={<Radio />} label="Female" />
-                    <FormControlLabel value="male" control={<Radio />} label="Male" />
-                    <FormControlLabel value="other" control={<Radio />} label="Other" />
-                    <FormControlLabel
-                        value="disabled"
-                        disabled
-                        control={<Radio />}
-                        label="(Disabled option)"
-                    /> */}
                 </RadioGroup>
             </FormControl>
         )

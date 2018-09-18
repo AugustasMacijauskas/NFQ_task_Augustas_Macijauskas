@@ -1,4 +1,4 @@
-import { products, brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, oss, orders, customerIDMin, customerIDMax, productIDMin, productIDMax, amountMin, amountMax } from './data';
+import { products, brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, discountMin, discountMax, oss, orders, customerIDMin, customerIDMax, productIDMin, productIDMax, amountMin, amountMax } from './data';
 
 const imitateApiDelay = (results) => {
     return new Promise(resolve => {
@@ -11,6 +11,7 @@ const imitateApiDelay = (results) => {
 // Products
 
 export const getProducts = (params = {}) => {
+    params.currentPage = params.currentPage || 1;
     let newProducts = products.slice();
     if (params.filter) {
         const keys = Object.keys(params.filter);
@@ -21,10 +22,33 @@ export const getProducts = (params = {}) => {
         });
     }
 
-    console.log(newProducts);
+    if (params.range) {
+        const keys = Object.keys(params.range);
+        keys.forEach(key => {
+            if (params.range[key]) {
+                newProducts = newProducts.filter(x => x[key] >= params.range[key].min && x[key] <= params.range[key].max)
+            }
+        })
+    }
+
+    if (params.search) {
+        const keys = ['id', 'category', 'model', 'brand', 'weight', 'size', 'colors', 'storage', 'os', 'primaryCamera', 'price', 'discount'];
+        if (params.search.value) {
+            const search = params.search.value.toLowerCase();
+            newProducts = newProducts.filter(x => keys.some(key => x[key].toString().toLowerCase().includes(search)))
+        }
+    }
+
+    const lastPage = Math.ceil(newProducts.length / 10);
+    if (params.currentPage) {
+        const start = (params.currentPage - 1) * 10;
+        newProducts = newProducts.slice(start, 10 + start);
+    }
+
 
     return imitateApiDelay({
-        currentPage: 1,
+        currentPage: params.currentPage,
+        lastPage,
         priceMin,
         priceMax,
         cameraMin,
@@ -33,7 +57,8 @@ export const getProducts = (params = {}) => {
         storageMax,
         sizeMin,
         sizeMax,
-        length: products.length,
+        discountMin,
+        discountMax,
         pageSize: 10,
         products: newProducts
     });
@@ -56,30 +81,41 @@ export const getOss = () => {
 // Orders
 
 export const getOrders = (params = {}) => {
-    // newArray = 
-    return imitateApiDelay(orders); // newArray
+    params.currentPage = params.currentPage || 1;
+    let newOrders = orders.slice();
+    if (params.range) {
+        const keys = Object.keys(params.range);
+        keys.forEach(key => {
+            if (params.range[key]) {
+                newOrders = newOrders.filter(x => x[key] >= params.range[key].min && x[key] <= params.range[key].max)
+            }
+        })
+    }
+
+    if (params.search) {
+        const keys = ['id', 'customerID', 'productID', 'amount'];
+        if (params.search.value) {
+            const search = params.search.value.toLowerCase();
+            newOrders = newOrders.filter(x => keys.some(key => x[key].toString().toLowerCase().includes(search)))
+        }
+    }
+
+    const lastPage = Math.ceil(newOrders.length / 10);
+    if (params.currentPage) {
+        const start = (params.currentPage - 1) * 10;
+        newOrders = newOrders.slice(start, 10 + start);
+    }
+
+    return imitateApiDelay({
+        currentPage: params.currentPage,
+        lastPage,
+        customerIDMin,
+        customerIDMax,
+        productIDMin,
+        productIDMax,
+        amountMin,
+        amountMax,
+        pageSize: 10,
+        orders: newOrders
+    });
 }
-
-export const getCustomerIDMin = () => {
-    return imitateApiDelay(customerIDMin);
-};
-
-export const getCustomerIDMax = () => {
-    return imitateApiDelay(customerIDMax);
-};
-
-export const getProductIDMin = () => {
-    return imitateApiDelay(productIDMin);
-};
-
-export const getProductIDMax = () => {
-    return imitateApiDelay(productIDMax);
-};
-
-export const getAmountMin = () => {
-    return imitateApiDelay(amountMin);
-};
-
-export const getAmountMax = () => {
-    return imitateApiDelay(amountMax);
-};

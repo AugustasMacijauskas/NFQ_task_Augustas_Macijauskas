@@ -2,17 +2,19 @@ import React, { PureComponent } from 'react';
 import Nouislider from 'react-nouislider';
 
 class SliderSelector extends PureComponent {
-    state = {};
+    state = {
+        min: this.props.min,
+        max: this.props.max,
+    };
 
-    handleUpdate = (values) => (e) => {
-        console.log(values);
+    handleUpdate = (values) => {
         this.setState(() => {
             return {
                 min: values[0],
                 max: values[1],
             }
         }, () => {
-            this.props.onEnd(this.state);
+            this.props.onChange(this.state);
         });
     }
 
@@ -21,11 +23,11 @@ class SliderSelector extends PureComponent {
             <div>
                 <div className="slider slider-info">
                     <Nouislider
-                        start={[this.props.min, this.props.max]}
+                        start={[this.state.min, this.state.max]}
                         connect={[false, true, false]}
                         step={1}
                         range={{ min: this.props.min, max: this.props.max }}
-                        onEnd={this.handleUpdate(this.props)}
+                        onChange={this.handleUpdate}
                         tooltips
                     />
                 </div>

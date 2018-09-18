@@ -1,29 +1,57 @@
 import React from 'react';
+import styled from 'styled-components';
+import { SliderSelector, SearchField, Pagination, Card } from 'shared-components';
 
-const Orders = ({ orders, customerIDMin, customerIDMax, productIDMin, productIDMax, amountMin, amountMax }) => (
+const StyledSliderSelector = styled(SliderSelector)`
+    margin: 1rem auto;
+    font-family: 'Roboto'; 
+`;
+
+const StyledP = styled.p`
+    margin: 3.5rem auto;
+    font-family: 'Roboto'; 
+`;
+
+const Orders = ({ orders, handleCustomerIDChange, handleProductIDChange, handleAmountChange, handleSearch, handlePageChange }) => (
     <div>
-        <ul>
+        <SearchField
+            onKeyUp={handleSearch}
+        />
+        <StyledP>CustomerID</StyledP>
+        <StyledSliderSelector
+            min={orders.customerIDMin}
+            max={orders.customerIDMax}
+            onChange={handleCustomerIDChange}
+        />
+        <StyledP>ProductID</StyledP>
+        <StyledSliderSelector
+            min={orders.productIDMin}
+            max={orders.productIDMax}
+            onChange={handleProductIDChange}
+        />
+        <StyledP>Amount</StyledP>
+        <StyledSliderSelector
+            min={orders.amountMin}
+            max={orders.amountMax}
+            onChange={handleAmountChange}
+        />
+        <div>
             {
-                orders.map((x, i) => {
+                orders.orders.map((x, i) => {
                     return (
-                        <li key={i}>
-                            <p>ID: {x.id}</p>
-                            <p>CustomerID: {x.customerID}</p>
-                            <p>ProductID: {x.productID}</p>
-                            <p>Amount: {x.amount}</p>
-                        </li>
+                        <Card
+                            key={i}
+                            item={x}
+                        />
                     )
                 })
             }
-        </ul>
-        <ul>
-            <li>customerIDMin: {customerIDMin}</li>
-            <li>customerIDMax: {customerIDMax}</li>
-            <li>productIDMin: {productIDMin}</li>
-            <li>productIDMax: {productIDMax}</li>
-            <li>amountMin: {amountMin}</li>
-            <li>amountMax: {amountMax}</li>
-        </ul>
+        </div>
+        <Pagination
+            current={orders.currentPage}
+            last={orders.lastPage}
+            onChange={handlePageChange}
+        />
     </div>
 )
 

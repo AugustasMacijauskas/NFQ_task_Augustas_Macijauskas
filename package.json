@@ -1,7 +1,7 @@
 {
-  "name": "NFQ_akademijos_stojamoji_uzduotis",
+  "name": "NFQ_akademijos_stojamoji_uzduotis_Augustas_Macijauskas",
   "version": "1.0.0",
-  "description": "NFQ_akademijos_stojamoji_uzduotis",
+  "description": "NFQ_akademijos_stojamoji_uzduotis_Augustas_Macijauskas",
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js --progress --colors",

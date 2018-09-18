@@ -477,7 +477,7 @@ export const products = [
         brand: 'Samsung',
         weight: 172,
         size: 5.6,
-        colors: ['Black, Orchid Grey, Gold, Blue'],
+        colors: ['Black', 'Orchid Grey', 'Gold', 'Blue'],
         storage: 32,
         os: 'Android',
         primaryCamera: 8,
@@ -759,9 +759,11 @@ var priceMax = 0;
 var cameraMin = Infinity;
 var cameraMax = 0;
 var storageMin = Infinity;
-var storageMax = 0
+var storageMax = 0;
 var sizeMin = Infinity;
-var sizeMax = 0
+var sizeMax = 0;
+var discountMin = Infinity;
+var discountMax = 0;
 const oss = [];
 
 for (let i = 0; i < products.length; i++) {
@@ -795,12 +797,18 @@ for (let i = 0; i < products.length; i++) {
     if (products[i].size > sizeMax) {
         sizeMax = products[i].size;
     }
+    if (products[i].discount < discountMin) {
+        discountMin = products[i].discount;
+    }
+    if (products[i].discount > discountMax) {
+        discountMax = products[i].discount;
+    }
     if (oss.indexOf(products[i].os) === -1) {
         oss.push(products[i].os);
     }
 }
 
-export { brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, oss };
+export { brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMin, storageMax, sizeMin, sizeMax, discountMin, discountMax, oss };
 
 
 
@@ -808,301 +816,301 @@ export { brands, categories, priceMin, priceMax, cameraMin, cameraMax, storageMi
 // Orders
 export const orders = [
     {
-        ID: 0,
+        id: 0,
         customerID: 32,
         productID: 8,
         amount: 2
     },
     {
-        ID: 1,
+        id: 1,
         customerID: 9,
         productID: 37,
         amount: 3
     },
     {
-        ID: 2,
+        id: 2,
         customerID: 13,
         productID: 16,
         amount: 2
     },
     {
-        ID: 3,
+        id: 3,
         customerID: 29,
         productID: 23,
         amount: 1
     },
     {
-        ID: 4,
+        id: 4,
         customerID: 36,
         productID: 17,
         amount: 2
     },
     {
-        ID: 5,
+        id: 5,
         customerID: 14,
         productID: 4,
         amount: 3
     },
     {
-        ID: 6,
+        id: 6,
         customerID: 31,
         productID: 27,
         amount: 3
     },
     {
-        ID: 7,
+        id: 7,
         customerID: 32,
         productID: 32,
         amount: 2
     },
     {
-        ID: 8,
+        id: 8,
         customerID: 6,
         productID: 36,
         amount: 3
     },
     {
-        ID: 9,
+        id: 9,
         customerID: 43,
         productID: 19,
         amount: 2
     },
     {
-        ID: 10,
+        id: 10,
         customerID: 23,
         productID: 32,
         amount: 3
     },
     {
-        ID: 11,
+        id: 11,
         customerID: 22,
         productID: 4,
         amount: 1
     },
     {
-        ID: 12,
+        id: 12,
         customerID: 9,
         productID: 31,
         amount: 1
     },
     {
-        ID: 13,
+        id: 13,
         customerID: 13,
         productID: 4,
         amount: 3
     },
     {
-        ID: 14,
+        id: 14,
         customerID: 44,
         productID: 47,
         amount: 3
     },
     {
-        ID: 15,
+        id: 15,
         customerID: 20,
         productID: 6,
         amount: 2
     },
     {
-        ID: 16,
+        id: 16,
         customerID: 12,
         productID: 45,
         amount: 2
     },
     {
-        ID: 17,
+        id: 17,
         customerID: 26,
         productID: 4,
         amount: 1
     },
     {
-        ID: 18,
+        id: 18,
         customerID: 38,
         productID: 33,
         amount: 2
     },
     {
-        ID: 19,
+        id: 19,
         customerID: 32,
         productID: 32,
         amount: 2
     },
     {
-        ID: 20,
+        id: 20,
         customerID: 10,
         productID: 28,
         amount: 3
     },
     {
-        ID: 21,
+        id: 21,
         customerID: 34,
         productID: 31,
         amount: 2
     },
     {
-        ID: 22,
+        id: 22,
         customerID: 15,
         productID: 48,
         amount: 1
     },
     {
-        ID: 23,
+        id: 23,
         customerID: 20,
         productID: 39,
         amount: 3
     },
     {
-        ID: 24,
+        id: 24,
         customerID: 37,
         productID: 34,
         amount: 2
     },
     {
-        ID: 25,
+        id: 25,
         customerID: 10,
         productID: 39,
         amount: 3
     },
     {
-        ID: 26,
+        id: 26,
         customerID: 44,
         productID: 1,
         amount: 3
     },
     {
-        ID: 27,
+        id: 27,
         customerID: 38,
         productID: 45,
         amount: 2
     },
     {
-        ID: 28,
+        id: 28,
         customerID: 45,
         productID: 15,
         amount: 1
     },
     {
-        ID: 29,
+        id: 29,
         customerID: 30,
         productID: 14,
         amount: 2
     },
     {
-        ID: 30,
+        id: 30,
         customerID: 18,
         productID: 13,
         amount: 1
     },
     {
-        ID: 31,
+        id: 31,
         customerID: 35,
         productID: 26,
         amount: 2
     },
     {
-        ID: 32,
+        id: 32,
         customerID: 10,
         productID: 21,
         amount: 2
     },
     {
-        ID: 33,
+        id: 33,
         customerID: 33,
         productID: 9,
         amount: 3
     },
     {
-        ID: 34,
+        id: 34,
         customerID: 20,
         productID: 1,
         amount: 2
     },
     {
-        ID: 35,
+        id: 35,
         customerID: 22,
         productID: 22,
         amount: 2
     },
     {
-        ID: 36,
+        id: 36,
         customerID: 15,
         productID: 9,
         amount: 1
     },
     {
-        ID: 37,
+        id: 37,
         customerID: 22,
         productID: 1,
         amount: 2
     },
     {
-        ID: 38,
+        id: 38,
         customerID: 4,
         productID: 22,
         amount: 3
     },
     {
-        ID: 39,
+        id: 39,
         customerID: 14,
         productID: 28,
         amount: 2
     },
     {
-        ID: 40,
+        id: 40,
         customerID: 32,
         productID: 24,
         amount: 1
     },
     {
-        ID: 41,
+        id: 41,
         customerID: 11,
         productID: 11,
         amount: 3
     },
     {
-        ID: 42,
+        id: 42,
         customerID: 38,
         productID: 28,
         amount: 3
     },
     {
-        ID: 43,
+        id: 43,
         customerID: 2,
         productID: 45,
         amount: 1
     },
     {
-        ID: 44,
+        id: 44,
         customerID: 47,
         productID: 17,
         amount: 2
     },
     {
-        ID: 45,
+        id: 45,
         customerID: 35,
         productID: 17,
         amount: 1
     },
     {
-        ID: 46,
+        id: 46,
         customerID: 5,
         productID: 24,
         amount: 3
     },
     {
-        ID: 47,
+        id: 47,
         customerID: 9,
         productID: 29,
         amount: 3
     },
     {
-        ID: 48,
+        id: 48,
         customerID: 37,
         productID: 22,
         amount: 3
     },
     {
-        ID: 49,
+        id: 49,
         customerID: 15,
         productID: 14,
         amount: 2
