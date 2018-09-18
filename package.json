@@ -11,7 +11,9 @@
     "test": "jest /*.spec.js",
     "test:watch": "yarn run test --watch",
     "predeploy": "npm run build:prod",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "heroku-prebuild": "webpack --config webpack.prod.js --progress --colors",
+    "heroku-postbuild": "webpack --config webpack.prod.js --progress --colors"
   },
   "dependencies": {
     "@material-ui/core": "^3.0.3",
