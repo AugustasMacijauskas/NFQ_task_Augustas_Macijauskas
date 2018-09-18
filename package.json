@@ -1,6 +1,7 @@
 {
   "name": "NFQ_akademijos_stojamoji_uzduotis_Augustas_Macijauskas",
   "version": "1.0.0",
+  "homepage": "https://augustasmacijauskas.github.io/NFQ_task_Augustas_Macijauskas/",
   "description": "NFQ_akademijos_stojamoji_uzduotis_Augustas_Macijauskas",
   "main": "index.js",
   "scripts": {
@@ -8,10 +9,13 @@
     "build:prod": "webpack --config webpack.prod.js --progress --colors",
     "start": "webpack-dev-server --config webpack.dev.js --open --progress --color",
     "test": "jest /*.spec.js",
-    "test:watch": "yarn run test --watch"
+    "test:watch": "yarn run test --watch",
+    "predeploy": "npm run build:prod",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@material-ui/core": "^3.0.3",
+    "gh-pages": "^2.0.0",
     "history": "^4.7.2",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
